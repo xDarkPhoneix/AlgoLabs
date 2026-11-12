@@ -13,6 +13,7 @@ Your access ZIP comes from your instructor's email, for example `Lab_4_student07
 | `lab4` | File permissions, SSH and remote file transfer | [labs/lab4/Experiment_Book_4_Draft.md](labs/lab4/Experiment_Book_4_Draft.md) |
 | `lab5` | Bash automation and terminal workflows         | [labs/lab5/Lab_Book.md](labs/lab5/Lab_Book.md)                               |
 | `lab7` | Introduction to Git: commits, reset and revert | [labs/lab7/Lab_Book.md](labs/lab7/Lab_Book.md)                               |
+| `lab8` | Shell scripting and automation                 | [labs/lab8/Lab_Book.md](labs/lab8/Lab_Book.md)                               |
 
 ---
 
@@ -80,11 +81,25 @@ Follow [labs/lab7/Lab_Book.md](labs/lab7/Lab_Book.md) (or `README.md` in your se
 
 ---
 
+## Lab 8: Shell scripting and automation
+
+Lab 8 uses the same Codespace, access ZIP and server account as Lab 5. Connect as in [Lab 5: step by step](#lab-5-step-by-step) (or [Coming back later](#coming-back-later)), then, on the server:
+
+```bash
+cd ~/lab-work/lab8          # README.md has the tasks
+check_lab lab8              # 0/100 before you start; check your score any time
+```
+
+Follow [labs/lab8/Lab_Book.md](labs/lab8/Lab_Book.md) (or `README.md` in your server folder). Work in `~/lab-work/lab8`, do the tasks in order, and run every test case exactly as shown, saving its output in `outputs/`: the grader reads those files, it does not run your scripts.
+
+---
+
 ## Check your score
 
 ```bash
 check_lab lab5      # on the server: name the lab
 check_lab lab7      # Lab 7: Git
+check_lab lab8      # Lab 8: shell scripting
 ```
 
 - Grading runs on the server, and the tests are hidden.
