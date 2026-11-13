@@ -56,20 +56,19 @@ Complete the tasks in order. Later tasks reuse scripts and files created earlier
 
 ## General Instructions
 
-1. Your main lab directory is **`~/lab-work/lab8`** on the server. Work only there; it is what gets graded.
-2. Create the following three folders inside it:
-   - `commands/` — input and test data files.
-   - `scripts/` — shell scripts.
-   - `outputs/` — generated output, error logs and saved test results.
-3. Use the exact file and folder names specified in each task.
-4. Every script must:
-   - Start with `#!/usr/bin/env bash` (the very first line).
-   - Be executable using `chmod +x`.
-   - Send normal output to **stdout** and error messages to **stderr** (`echo "..." >&2`).
-5. Always quote variables containing file or directory paths (`"$1"`, `"$file"`).
-6. Run every command from the main lab directory `~/lab-work/lab8`, unless specified otherwise. All paths below are relative to it.
-7. Create the data files with the commands given in each **Setup** (copy them exactly). Write scripts with `nano` or a here-document (`cat > scripts/x.sh << 'EOF' ... EOF`).
-8. `sudo` is not needed for any task.
+- Your main lab directory is **`~/lab-work/lab8`** on the server. Work only there; it is what gets graded.
+- Create the following three folders inside it:
+  - `commands/` — input and test data files.
+  - `scripts/` — shell scripts.
+  - `outputs/` — generated output, error logs and saved test results.
+- Use the exact file and folder names specified in each task.
+- Every script must:
+  - Start with `#!/usr/bin/env bash` (the very first line).
+  - Be executable using `chmod +x`.
+  - Send normal output to **stdout** and error messages to **stderr** (`echo "..." >&2`).
+- Always quote variables containing file or directory paths (`"$1"`, `"$file"`).
+- Run every command from the main lab directory `~/lab-work/lab8`, unless specified otherwise. All paths below are relative to it.
+- Create the data files with the commands given in each **Setup** (copy them exactly). Write scripts with `nano` or a here-document (`cat > scripts/x.sh << 'EOF' ... EOF`).
 
 ## How your work is graded: save every test run
 
