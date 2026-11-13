@@ -1,33 +1,54 @@
 # Lab 8: Shell Scripting & Automation
 
-**Environment:** the class lab server, reached from the terminal of your GitHub Codespace. Your account is `studentNN`: replace `studentNN` with your own account (in your ZIP's name), e.g. `student07`.
+**Environment:** the class lab server, reached from the **Terminal** app on your Mac. Your account is `studentNN`: replace `studentNN` with your own account (in your ZIP's name), e.g. `student07`.
 
 ---
 
-## Setup: connect to the lab server
+## Setup: connect to the lab server from your Mac
 
-This is the same as in Lab 5, and the repository's `README.md` explains each step in more detail. Your access ZIP (for example `Lab_4_studentNN_Access.zip`) is the one from your instructor's email; the same ZIP works for every lab.
+Your access ZIP (for example `Lab_4_studentNN_Access.zip`) is the one from your instructor's email; the same ZIP works for every lab.
 
-1. Open your Codespace from the AlgoLabs repository (**Code → Codespaces**, or the link in the repository's `README.md`). Wait until a terminal appears at the bottom; if there is none, use **Terminal → New Terminal**.
-2. If `~/Lab_4_studentNN_Access` does not exist yet: in the Explorer on the left, right-click the `.uploads` folder, choose **Upload…** and pick your access ZIP. Keep it zipped.
-3. In the Codespace terminal, unzip it into your home folder (skip the `unzip` if you did it before), protect the key and connect:
+1. Download the ZIP from the email. It lands in your **Downloads** folder. Leave it there.
+2. Open **Terminal**: press `⌘ Space`, type `Terminal` and press Return.
+3. Go to your Downloads folder and unzip the ZIP:
 
    ```bash
-   unzip -o .uploads/Lab_4_studentNN_Access.zip -d ~
-   cd ~/Lab_4_studentNN_Access
+   cd ~/Downloads
+   unzip -o Lab_4_studentNN_Access.zip
+   ```
+
+   Safari often unzips downloads by itself. If `ls` already shows a folder named `Lab_4_studentNN_Access`, you can skip the `unzip` line.
+
+4. Go into the unzipped folder, protect the key and connect:
+
+   ```bash
+   cd ~/Downloads/Lab_4_studentNN_Access
+   ls access                                     # you must see ssh_key
    chmod 600 access/ssh_key                      # SSH refuses a key others can read
    ssh -i access/ssh_key studentNN@98.70.53.61
    ```
 
+   The first time, SSH asks `Are you sure you want to continue connecting (yes/no/[fingerprint])?`. Type `yes` and press Return.
+
    `-i` takes the **path** of the key file. Never open the key and paste its text into the terminal.
-4. You are connected when the prompt shows `studentNN@students-lab`. Everything in this lab is typed **on the server**. Go to your lab folder and check that grading works:
+
+5. You are connected when the prompt shows `studentNN@students-lab`. Everything in this lab is typed **on the server**, not on your Mac. Go to your lab folder and check that grading works:
 
    ```bash
    cd ~/lab-work/lab8
    check_lab lab8                                # 0/100 before you start; run it any time
    ```
 
-If the connection drops, run steps 3 and 4 again. Your files stay on the server. Do not share your key or ZIP with anyone.
+If the connection drops, open Terminal and run steps 4 and 5 again. Your files stay on the server. Do not share your key or ZIP with anyone.
+
+**Common problems**
+
+| Message                                       | Fix                                                                                                                   |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `No such file or directory` after `cd`        | The folder or ZIP name is different. Run `ls ~/Downloads` and use the exact name you see.                             |
+| `WARNING: UNPROTECTED PRIVATE KEY FILE!`      | Run `chmod 600 access/ssh_key` again, then connect.                                                                   |
+| `Permission denied (publickey)`               | Check that you are in the `Lab_4_studentNN_Access` folder and that `studentNN` matches the number in your ZIP's name. |
+| `Identity file access/ssh_key not accessible` | You are in the wrong folder. Run step 4 from the `cd` line.                                                           |
 
 ---
 
@@ -83,11 +104,11 @@ The grader **does not run your scripts**. It reads the files in `outputs/`. So e
 ./scripts/NAME.sh ARGS > outputs/qN_testM.out 2> outputs/qN_testM.err; echo $? > outputs/qN_testM.status
 ```
 
-| File | Holds |
-| --- | --- |
-| `outputs/qN_testM.out` | everything the script printed on **stdout** |
-| `outputs/qN_testM.err` | everything the script printed on **stderr** |
-| `outputs/qN_testM.status` | the script's **exit status** (`$?`) |
+| File                      | Holds                                       |
+| ------------------------- | ------------------------------------------- |
+| `outputs/qN_testM.out`    | everything the script printed on **stdout** |
+| `outputs/qN_testM.err`    | everything the script printed on **stderr** |
+| `outputs/qN_testM.status` | the script's **exit status** (`$?`)         |
 
 The exact command for every test is given under **Test Cases** in each task. If you fix a script later, **run its tests again** so the saved files are up to date (they are overwritten, not appended). Run `check_lab lab8` any time to see your score; each `FAIL` line names the task it belongs to.
 
