@@ -6,49 +6,24 @@
 
 ## Setup: connect to the lab server from your Mac
 
-Your access ZIP (for example `Lab_4_studentNN_Access.zip`) is the one from your instructor's email; the same ZIP works for every lab.
+- Open **Terminal**, unzip the ZIP, protect the key and connect:
 
-1. Download the ZIP from the email. It lands in your **Downloads** folder. Leave it there.
-2. Open **Terminal**: press `⌘ Space`, type `Terminal` and press Return.
-3. Go to your Downloads folder and unzip the ZIP:
+  ```bash
+  cd ~/Downloads
+  unzip -o Lab_4_studentNN_Access.zip
+  cd Lab_4_studentNN_Access
+  chmod 600 access/ssh_key
+  ssh -i access/ssh_key studentNN@98.70.53.61    # type yes if asked
+  ```
 
-   ```bash
-   cd ~/Downloads
-   unzip -o Lab_4_studentNN_Access.zip
-   ```
+- When the prompt shows `studentNN@students-lab`, you are on the server. Go to your lab folder and check grading:
 
-   Safari often unzips downloads by itself. If `ls` already shows a folder named `Lab_4_studentNN_Access`, you can skip the `unzip` line.
+  ```bash
+  cd ~/lab-work/lab8
+  check_lab lab8
+  ```
 
-4. Go into the unzipped folder, protect the key and connect:
-
-   ```bash
-   cd ~/Downloads/Lab_4_studentNN_Access
-   ls access                                     # you must see ssh_key
-   chmod 600 access/ssh_key                      # SSH refuses a key others can read
-   ssh -i access/ssh_key studentNN@98.70.53.61
-   ```
-
-   The first time, SSH asks `Are you sure you want to continue connecting (yes/no/[fingerprint])?`. Type `yes` and press Return.
-
-   `-i` takes the **path** of the key file. Never open the key and paste its text into the terminal.
-
-5. You are connected when the prompt shows `studentNN@students-lab`. Everything in this lab is typed **on the server**, not on your Mac. Go to your lab folder and check that grading works:
-
-   ```bash
-   cd ~/lab-work/lab8
-   check_lab lab8                                # 0/100 before you start; run it any time
-   ```
-
-If the connection drops, open Terminal and run steps 4 and 5 again. Your files stay on the server. Do not share your key or ZIP with anyone.
-
-**Common problems**
-
-| Message                                       | Fix                                                                                                                   |
-| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `No such file or directory` after `cd`        | The folder or ZIP name is different. Run `ls ~/Downloads` and use the exact name you see.                             |
-| `WARNING: UNPROTECTED PRIVATE KEY FILE!`      | Run `chmod 600 access/ssh_key` again, then connect.                                                                   |
-| `Permission denied (publickey)`               | Check that you are in the `Lab_4_studentNN_Access` folder and that `studentNN` matches the number in your ZIP's name. |
-| `Identity file access/ssh_key not accessible` | You are in the wrong folder. Run step 4 from the `cd` line.                                                           |
+- If the connection drops, run `cd ~/Downloads/Lab_4_studentNN_Access` and the `ssh` command again. Do not share your key or ZIP.
 
 ---
 
