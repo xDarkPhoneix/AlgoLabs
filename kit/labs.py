@@ -24,7 +24,7 @@ import sys
 from common import ROOT, plain_path
 
 LABS = ROOT / 'labs'
-LAB_RE = re.compile(r'(?:lab|mocktest)[0-9]{1,3}')
+LAB_RE = re.compile(r'(?:lab|mocktest|test)[0-9]{1,3}')
 
 
 class Lab:

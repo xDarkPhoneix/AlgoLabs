@@ -14,6 +14,7 @@ Your access ZIP comes from your instructor's email, for example `Lab_4_student07
 | `lab5` | Bash automation and terminal workflows         | [labs/lab5/Lab_Book.md](labs/lab5/Lab_Book.md)                               |
 | `lab7` | Introduction to Git: commits, reset and revert | [labs/lab7/Lab_Book.md](labs/lab7/Lab_Book.md)                               |
 | `lab8` | Shell scripting and automation                 | [labs/lab8/Lab_Book.md](labs/lab8/Lab_Book.md)                               |
+| `test1` | Lab Test 1: shell scripting examination       | [labs/test1/Lab_Book.md](labs/test1/Lab_Book.md)                             |
 | `mocktest1` | Mock Test 1: Linux basics, permissions, `cut` | [labs/mocktest1/Lab_Book.md](labs/mocktest1/Lab_Book.md)               |
 | `mocktest2` | Mock Test 2: `sort`/`uniq`, `tar`, `chmod`, a script | [labs/mocktest2/Lab_Book.md](labs/mocktest2/Lab_Book.md)        |
 
@@ -132,12 +133,26 @@ The questions are in [labs/mocktest2/Lab_Book.md](labs/mocktest2/Lab_Book.md). Y
 
 ---
 
+## Lab Test 1 (test1): shell scripting examination
+
+Lab Test 1 is a 90-minute exam worth 70 marks. Connect from the **Terminal** app on your Mac exactly as for [Mock Test 1](#mock-test-1-mocktest1-linux-basics), then, on the server:
+
+```bash
+cd ~/lab-work/test1/RollNo_Exam        # already created for you
+check_lab test1                        # 0/70 before you start; check your score any time
+```
+
+The questions are in [labs/test1/Lab_Book.md](labs/test1/Lab_Book.md). Your folder `RollNo_Exam` and every answer file are already created, empty, on the server: write your answers into them, keep the exact file names and do the questions in order. There is nothing to upload: your files on the server are graded.
+
+---
+
 ## Check your score
 
 ```bash
 check_lab lab5      # on the server: name the lab
 check_lab lab7      # Lab 7: Git
 check_lab lab8      # Lab 8: shell scripting
+check_lab test1     # Lab Test 1
 check_lab mocktest1 # Mock Test 1
 check_lab mocktest2 # Mock Test 2
 ```
